@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <h1>All the Pets!</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                <th scope="col" class="info">ID</th>
+                <th scope="col" class="info">Name</th>
+                <th scope="col" class="info">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for one_pet in all_pets %}
+                <tr>
+                <th scope="row" class="info">{{ one_pet["id"] }}</th>
+                <td class="info">{{ one_pet["name"] }}</td>
+                <td class="info">{{ one_pet["type"] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div id="add-pet">  
+            <h1>Add Pet</h1>
+            <form action="/create_pet" method="POST">
+                <p>Name: <input type="text" name="names"></p>
+                <p>Type: <input type="text" name="types"></p>
+                <input type="submit" value="Add Pet">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
